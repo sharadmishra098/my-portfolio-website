@@ -1,0 +1,111 @@
+{
+  "name": "Sharad Mishra",
+  "title": "Backend / GenAI Software Engineer",
+  "location": "India",
+  "email": "sharadgkp26@gmail.com",
+  "phone": "+91 9305164348",
+  "summary": "Backend engineer with 5+ years of experience building scalable, event-driven systems on AWS and GCP. Focused on integrating Generative AI capabilities such as LLM-based automation and RAG into production-grade systems.",
+  "taglines": [
+    "Designing resilient systems for modern AI products.",
+    "Turning infrastructure, APIs, and LLM workflows into polished user outcomes.",
+    "Blending backend rigor with immersive product storytelling."
+  ],
+  "contact": [
+    {
+      "label": "Email",
+      "value": "sharadgkp26@gmail.com",
+      "href": "mailto:sharadgkp26@gmail.com"
+    },
+    {
+      "label": "Phone",
+      "value": "+91 9305164348",
+      "href": "tel:+919305164348"
+    },
+    {
+      "label": "Location",
+      "value": "India",
+      "href": "https://maps.google.com/?q=India"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Generative AI",
+      "color": "#74f2ff",
+      "items": ["LLM Integration", "Prompt Engineering", "RAG", "Embeddings", "Vector DB"]
+    },
+    {
+      "category": "Backend",
+      "color": "#ff8a6c",
+      "items": ["Node.js", "TypeScript", "Express.js", "Python"]
+    },
+    {
+      "category": "Cloud",
+      "color": "#ffd36a",
+      "items": ["AWS", "GCP", "Docker"]
+    },
+    {
+      "category": "Data",
+      "color": "#99b9ff",
+      "items": ["MongoDB", "MySQL", "Redis"]
+    },
+    {
+      "category": "Practices",
+      "color": "#6fffd2",
+      "items": ["CI/CD", "System Design", "Distributed Systems"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "HighLevel",
+      "role": "Software Development Engineer 2",
+      "duration": "Jan 2024 - Present",
+      "accent": "#74f2ff",
+      "highlights": [
+        "Optimized IP infrastructure for email deliverability on GCP.",
+        "Designed an IP rotation system that improved inbox placement by 30%.",
+        "Built scalable APIs that maintained 99.9% uptime.",
+        "Developed monitoring systems that cut issue resolution time by 40%."
+      ]
+    },
+    {
+      "company": "Climate Connect Digital",
+      "role": "Software Development Engineer",
+      "duration": "Apr 2022 - Dec 2023",
+      "accent": "#ff8a6c",
+      "highlights": [
+        "Built scalable REST APIs and improved performance by 40%.",
+        "Developed serverless microservices using AWS Lambda.",
+        "Implemented event-driven systems and RBAC to support secure scale."
+      ]
+    },
+    {
+      "company": "Apollo Finvest",
+      "role": "Software Engineer",
+      "duration": "Oct 2020 - Nov 2021",
+      "accent": "#ffd36a",
+      "highlights": [
+        "Built a serverless loan processing API that reduced onboarding time by 50%."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "AI Finance Copilot",
+      "summary": "An AI-powered financial copilot using Groww MCP and GPT-5.4 to analyze holdings, balances, IPOs, market movers, and FnO data via natural-language interactions.",
+      "stack": ["GPT-5.4", "Groww MCP", "Tool Orchestration", "Prompt Engineering", "Finance Data"],
+      "accent": "#6fffd2",
+      "achievements": [
+        "Mapped user intent to Groww MCP capabilities including portfolio retrieval, fundamentals screening, open-interest analysis, and margin estimation.",
+        "Returned explainable, structured responses designed for trust and usability.",
+        "Generated portfolio health summaries, concentration risk detection, stock comparison memos, and market opportunity watchlists."
+      ]
+    }
+  ],
+  "education": "B.Tech, Computer Science - UIET, CSJM University (2016 - 2020)",
+  "metrics": [
+    { "label": "Years Building", "value": "5+" },
+    { "label": "Inbox Lift", "value": "30%" },
+    { "label": "API Uptime", "value": "99.9%" },
+    { "label": "Resolution Faster", "value": "40%" }
+  ]
+}

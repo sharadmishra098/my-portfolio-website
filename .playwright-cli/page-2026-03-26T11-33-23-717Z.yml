@@ -1,0 +1,172 @@
+- generic [ref=e3]:
+  - generic:
+    - generic [ref=e5]: 3D Journey Portfolio
+    - button "Toggle color theme" [ref=e7] [cursor=pointer]:
+      - img [ref=e8]
+      - generic [ref=e14]: Alt mode
+  - main [ref=e15]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - paragraph [ref=e19]: Backend architecting meets generative intelligence
+        - generic [ref=e20]:
+          - heading "Sharad Mishra" [level=1] [ref=e21]
+          - paragraph [ref=e22]: Backend / GenAI Software Engineer
+          - paragraph [ref=e23]: Designing resilient systems for modern AI products.
+        - generic [ref=e24]:
+          - link "Start a conversation" [ref=e25] [cursor=pointer]:
+            - /url: mailto:sharadgkp26@gmail.com
+            - text: Start a conversation
+            - img [ref=e26]
+          - link "Explore the journey" [ref=e29] [cursor=pointer]:
+            - /url: "#experience"
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Current signal
+          - paragraph [ref=e33]: Production-grade AI systems
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - generic [ref=e36]: 5+
+            - generic [ref=e37]: Years Building
+          - generic [ref=e38]:
+            - generic [ref=e39]: 30%
+            - generic [ref=e40]: Inbox Lift
+          - generic [ref=e41]:
+            - generic [ref=e42]: 99.9%
+            - generic [ref=e43]: API Uptime
+          - generic [ref=e44]:
+            - generic [ref=e45]: 40%
+            - generic [ref=e46]: Resolution Faster
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - paragraph [ref=e50]: Depth transition
+        - heading "From backend foundations to immersive AI products." [level=2] [ref=e51]
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - paragraph [ref=e54]: About
+          - heading "A systems-first engineer with product instincts." [level=2] [ref=e55]
+          - paragraph [ref=e56]: Backend engineer with 5+ years of experience building scalable, event-driven systems on AWS and GCP. Focused on integrating Generative AI capabilities such as LLM-based automation and RAG into production-grade systems.
+        - generic [ref=e57]:
+          - paragraph [ref=e59]: Designing resilient systems for modern AI products.
+          - paragraph [ref=e61]: Turning infrastructure, APIs, and LLM workflows into polished user outcomes.
+          - paragraph [ref=e63]: Blending backend rigor with immersive product storytelling.
+    - generic [ref=e65]:
+      - generic [ref=e67]:
+        - paragraph [ref=e68]: Experience
+        - heading "A 3D timeline of systems shipped under real constraints." [level=2] [ref=e69]
+        - paragraph [ref=e70]: The scene ahead turns each role into a spatial node while the overlay surfaces the business outcomes.
+      - generic [ref=e71]:
+        - article [ref=e72]:
+          - generic [ref=e74]:
+            - paragraph [ref=e75]: Jan 2024 - Present
+            - heading "HighLevel" [level=3] [ref=e76]
+            - paragraph [ref=e77]: Software Development Engineer 2
+          - generic [ref=e78]:
+            - paragraph [ref=e79]: Optimized IP infrastructure for email deliverability on GCP.
+            - paragraph [ref=e80]: Designed an IP rotation system that improved inbox placement by 30%.
+            - paragraph [ref=e81]: Built scalable APIs that maintained 99.9% uptime.
+            - paragraph [ref=e82]: Developed monitoring systems that cut issue resolution time by 40%.
+        - article [ref=e83]:
+          - generic [ref=e85]:
+            - paragraph [ref=e86]: Apr 2022 - Dec 2023
+            - heading "Climate Connect Digital" [level=3] [ref=e87]
+            - paragraph [ref=e88]: Software Development Engineer
+          - generic [ref=e89]:
+            - paragraph [ref=e90]: Built scalable REST APIs and improved performance by 40%.
+            - paragraph [ref=e91]: Developed serverless microservices using AWS Lambda.
+            - paragraph [ref=e92]: Implemented event-driven systems and RBAC to support secure scale.
+        - article [ref=e93]:
+          - generic [ref=e95]:
+            - paragraph [ref=e96]: Oct 2020 - Nov 2021
+            - heading "Apollo Finvest" [level=3] [ref=e97]
+            - paragraph [ref=e98]: Software Engineer
+          - paragraph [ref=e100]: Built a serverless loan processing API that reduced onboarding time by 50%.
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - paragraph [ref=e105]: Skills
+          - heading "An orbit of capabilities around product impact." [level=2] [ref=e106]
+          - paragraph [ref=e107]: As the camera drifts deeper, the skill cloud becomes a living map of Sharad's backend, cloud, data, and GenAI toolkit.
+        - generic [ref=e108]:
+          - paragraph [ref=e109]: Highlighted node
+          - paragraph [ref=e110]: LLM Integration
+          - paragraph [ref=e111]: Hoverable and clickable interactions can expand from this foundation, while the current build keeps the scene responsive and performant.
+      - generic [ref=e112]:
+        - generic [ref=e113]:
+          - paragraph [ref=e114]: Generative AI
+          - generic [ref=e115]:
+            - button "LLM Integration" [ref=e116] [cursor=pointer]
+            - button "Prompt Engineering" [ref=e117] [cursor=pointer]
+            - button "RAG" [ref=e118] [cursor=pointer]
+            - button "Embeddings" [ref=e119] [cursor=pointer]
+            - button "Vector DB" [ref=e120] [cursor=pointer]
+        - generic [ref=e121]:
+          - paragraph [ref=e122]: Backend
+          - generic [ref=e123]:
+            - button "Node.js" [ref=e124] [cursor=pointer]
+            - button "TypeScript" [ref=e125] [cursor=pointer]
+            - button "Express.js" [ref=e126] [cursor=pointer]
+            - button "Python" [ref=e127] [cursor=pointer]
+        - generic [ref=e128]:
+          - paragraph [ref=e129]: Cloud
+          - generic [ref=e130]:
+            - button "AWS" [ref=e131] [cursor=pointer]
+            - button "GCP" [ref=e132] [cursor=pointer]
+            - button "Docker" [ref=e133] [cursor=pointer]
+        - generic [ref=e134]:
+          - paragraph [ref=e135]: Data
+          - generic [ref=e136]:
+            - button "MongoDB" [ref=e137] [cursor=pointer]
+            - button "MySQL" [ref=e138] [cursor=pointer]
+            - button "Redis" [ref=e139] [cursor=pointer]
+        - generic [ref=e140]:
+          - paragraph [ref=e141]: Practices
+          - generic [ref=e142]:
+            - button "CI/CD" [ref=e143] [cursor=pointer]
+            - button "System Design" [ref=e144] [cursor=pointer]
+            - button "Distributed Systems" [ref=e145] [cursor=pointer]
+    - generic [ref=e147]:
+      - generic [ref=e149]:
+        - paragraph [ref=e150]: Projects
+        - heading "Focus mode for a GenAI product case study." [level=2] [ref=e151]
+        - paragraph [ref=e152]: The featured build becomes a floating panel in the 3D world while the content overlay reveals architecture and outcome.
+      - article [ref=e154]:
+        - paragraph [ref=e155]: Featured build
+        - heading "AI Finance Copilot" [level=3] [ref=e156]
+        - paragraph [ref=e157]: An AI-powered financial copilot using Groww MCP and GPT-5.4 to analyze holdings, balances, IPOs, market movers, and FnO data via natural-language interactions.
+        - generic [ref=e158]:
+          - generic [ref=e159]: GPT-5.4
+          - generic [ref=e160]: Groww MCP
+          - generic [ref=e161]: Tool Orchestration
+          - generic [ref=e162]: Prompt Engineering
+          - generic [ref=e163]: Finance Data
+        - generic [ref=e164]:
+          - paragraph [ref=e165]: Mapped user intent to Groww MCP capabilities including portfolio retrieval, fundamentals screening, open-interest analysis, and margin estimation.
+          - paragraph [ref=e166]: Returned explainable, structured responses designed for trust and usability.
+          - paragraph [ref=e167]: Generated portfolio health summaries, concentration risk detection, stock comparison memos, and market opportunity watchlists.
+    - generic [ref=e169]:
+      - generic [ref=e170]:
+        - generic [ref=e171]:
+          - paragraph [ref=e172]: Final scene
+          - heading "Ready for the next system worth building." [level=2] [ref=e173]
+          - paragraph [ref=e174]: B.Tech, Computer Science - UIET, CSJM University (2016 - 2020)
+        - generic [ref=e175]:
+          - link "sharadgkp26@gmail.com" [ref=e176] [cursor=pointer]:
+            - /url: mailto:sharadgkp26@gmail.com
+            - img [ref=e177]
+            - generic [ref=e180]: sharadgkp26@gmail.com
+          - link "+91 9305164348" [ref=e181] [cursor=pointer]:
+            - /url: tel:+919305164348
+            - img [ref=e182]
+            - generic [ref=e184]: +91 9305164348
+          - link "India" [ref=e185] [cursor=pointer]:
+            - /url: https://maps.google.com/?q=India
+            - img [ref=e186]
+            - generic [ref=e189]: India
+      - generic [ref=e190]:
+        - paragraph [ref=e191]: Call to action
+        - paragraph [ref=e192]: Need scalable backend architecture or a GenAI experience that actually ships?
+        - link "Reach out" [ref=e193] [cursor=pointer]:
+          - /url: mailto:sharadgkp26@gmail.com
+          - text: Reach out
+          - img [ref=e194]
+  - generic [ref=e197]: hero
