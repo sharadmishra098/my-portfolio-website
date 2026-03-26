@@ -7,15 +7,16 @@ import { portfolioData } from '@/data/portfolio-data';
 interface SceneCanvasProps {
   progress: number;
   activeSkill: string | null;
+  mobile?: boolean;
 }
 
 function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
 }
 
-function ParticleField() {
+function ParticleField({ mobile = false }: { mobile?: boolean }) {
   const points = useMemo(() => {
-    const positions = new Float32Array(1800 * 3);
+    const positions = new Float32Array((mobile ? 900 : 1800) * 3);
 
     for (let index = 0; index < positions.length; index += 3) {
       positions[index] = (Math.random() - 0.5) * 24;
@@ -33,36 +34,36 @@ function ParticleField() {
   );
 }
 
-function CameraRig({ progress }: { progress: number }) {
+function CameraRig({ progress, mobile = false }: { progress: number; mobile?: boolean }) {
   useFrame((state) => {
-    const z = lerp(11, -46, progress);
-    const x = Math.sin(progress * Math.PI * 1.8) * 1.2;
-    const y = lerp(0.4, -0.8, progress);
+    const z = mobile ? lerp(7.4, -18, progress) : lerp(11, -46, progress);
+    const x = mobile ? Math.sin(progress * Math.PI * 1.1) * 0.1 : Math.sin(progress * Math.PI * 1.8) * 1.2;
+    const y = mobile ? lerp(0.15, -0.2, progress) : lerp(0.4, -0.8, progress);
 
     state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, x, 0.06);
     state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, y, 0.06);
     state.camera.position.z = THREE.MathUtils.lerp(state.camera.position.z, z, 0.06);
-    state.camera.lookAt(1.8, 0, z - 8);
+    state.camera.lookAt(mobile ? 0.05 : 1.8, mobile ? 0.4 : 0, z - (mobile ? 3.8 : 8));
   });
 
   return null;
 }
 
-function HeroStage({ progress }: { progress: number }) {
+function HeroStage({ progress, mobile = false }: { progress: number; mobile?: boolean }) {
   const group = useRef<THREE.Group>(null);
 
   useFrame((state) => {
     if (!group.current) return;
 
-    group.current.position.x = 3.8;
-    group.current.position.y = 0.3;
-    group.current.position.z = lerp(2, -6, progress);
+    group.current.position.x = mobile ? 0.2 : 3.8;
+    group.current.position.y = mobile ? 0.95 : 0.3;
+    group.current.position.z = mobile ? lerp(2.8, -0.5, progress) : lerp(2, -6, progress);
     group.current.rotation.y = state.clock.elapsedTime * 0.28;
     group.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.2) * 0.16;
   });
 
   return (
-    <group ref={group}>
+    <group ref={group} scale={mobile ? 1.02 : 1}>
       <Float speed={1.4} rotationIntensity={0.25} floatIntensity={0.8}>
         <mesh rotation={[0.6, 0.2, 0.4]}>
           <torusGeometry args={[2.4, 0.08, 32, 220]} />
@@ -107,19 +108,19 @@ function HeroStage({ progress }: { progress: number }) {
   );
 }
 
-function TunnelRings() {
+function TunnelRings({ mobile = false }: { mobile?: boolean }) {
   const group = useRef<THREE.Group>(null);
 
   const rings = useMemo(
     () =>
-      Array.from({ length: 18 }, (_, index) => ({
-        z: -4 - index * 4.2,
-        radius: 1.6 + (index % 4) * 0.5,
-        x: Math.sin(index * 0.55) * 1.4,
-        y: Math.cos(index * 0.48) * 0.9,
+      Array.from({ length: mobile ? 9 : 18 }, (_, index) => ({
+        z: -4 - index * (mobile ? 2.8 : 4.2),
+        radius: (mobile ? 1.35 : 1.6) + (index % 4) * (mobile ? 0.28 : 0.5),
+        x: Math.sin(index * 0.55) * (mobile ? 0.4 : 1.4),
+        y: Math.cos(index * 0.48) * (mobile ? 0.3 : 0.9),
         color: ['#74f2ff', '#ff8a6c', '#ffd36a'][index % 3],
       })),
-    [],
+    [mobile],
   );
 
   useFrame((state) => {
@@ -139,15 +140,22 @@ function TunnelRings() {
   );
 }
 
-function ExperiencePath() {
+function ExperiencePath({ mobile = false }: { mobile?: boolean }) {
   const points = useMemo(
-    () => [
-      new THREE.Vector3(-1.2, 0.4, -16),
-      new THREE.Vector3(1.8, 0.1, -22),
-      new THREE.Vector3(4.2, -0.5, -30),
-      new THREE.Vector3(2.4, -0.3, -38),
-    ],
-    [],
+    () =>
+      mobile
+        ? [
+            new THREE.Vector3(-0.4, -0.4, -10),
+            new THREE.Vector3(0.55, -0.6, -14),
+            new THREE.Vector3(-0.3, -0.8, -18),
+          ]
+        : [
+            new THREE.Vector3(-1.2, 0.4, -16),
+            new THREE.Vector3(1.8, 0.1, -22),
+            new THREE.Vector3(4.2, -0.5, -30),
+            new THREE.Vector3(2.4, -0.3, -38),
+          ],
+    [mobile],
   );
 
   return (
@@ -174,7 +182,13 @@ function ExperiencePath() {
   );
 }
 
-function SkillConstellation({ activeSkill }: { activeSkill: string | null }) {
+function SkillConstellation({
+  activeSkill,
+  mobile = false,
+}: {
+  activeSkill: string | null;
+  mobile?: boolean;
+}) {
   const group = useRef<THREE.Group>(null);
   const skills = useMemo(
     () =>
@@ -194,13 +208,13 @@ function SkillConstellation({ activeSkill }: { activeSkill: string | null }) {
 
   useFrame((state) => {
     if (!group.current) return;
-    group.current.position.set(1.6, 0, -34);
+    group.current.position.set(mobile ? 0 : 1.6, mobile ? -0.8 : 0, mobile ? -18 : -34);
     group.current.rotation.y = state.clock.elapsedTime * 0.16;
     group.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.06;
   });
 
   return (
-    <group ref={group}>
+    <group ref={group} scale={mobile ? 0.68 : 1}>
       <mesh>
         <sphereGeometry args={[1.1, 32, 32]} />
         <meshStandardMaterial color="#102944" emissive="#0f2840" emissiveIntensity={1} />
@@ -226,18 +240,18 @@ function SkillConstellation({ activeSkill }: { activeSkill: string | null }) {
   );
 }
 
-function ProjectMonolith() {
+function ProjectMonolith({ mobile = false }: { mobile?: boolean }) {
   const group = useRef<THREE.Group>(null);
 
   useFrame((state) => {
     if (!group.current) return;
-    group.current.position.set(2.6, 0, -46);
+    group.current.position.set(mobile ? 0 : 2.6, mobile ? -1.4 : 0, mobile ? -24 : -46);
     group.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.4) * 0.18;
     group.current.rotation.x = Math.cos(state.clock.elapsedTime * 0.28) * 0.06;
   });
 
   return (
-    <group ref={group}>
+    <group ref={group} scale={mobile ? 0.72 : 1}>
       <mesh>
         <boxGeometry args={[3.2, 2.1, 0.2]} />
         <meshStandardMaterial color="#10253c" emissive="#10253c" emissiveIntensity={0.9} metalness={0.35} roughness={0.2} />
@@ -254,12 +268,12 @@ function ProjectMonolith() {
   );
 }
 
-function ContactBeacon() {
+function ContactBeacon({ mobile = false }: { mobile?: boolean }) {
   const ring = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
     if (!ring.current) return;
-    ring.current.position.set(1.4, -0.3, -60);
+    ring.current.position.set(mobile ? 0 : 1.4, mobile ? -2.1 : -0.3, mobile ? -30 : -60);
     ring.current.rotation.z += 0.006;
     const scale = 1 + Math.sin(state.clock.elapsedTime * 1.7) * 0.08;
     ring.current.scale.setScalar(scale);
@@ -273,25 +287,29 @@ function ContactBeacon() {
   );
 }
 
-export function SceneCanvas({ progress, activeSkill }: SceneCanvasProps) {
+export function SceneCanvas({ progress, activeSkill, mobile = false }: SceneCanvasProps) {
   return (
     <div className="pointer-events-none fixed inset-0 z-0">
-      <Canvas camera={{ position: [0, 0.4, 11], fov: 38 }} gl={{ antialias: true, alpha: true }}>
+      <Canvas
+        dpr={mobile ? [1, 1.25] : [1, 2]}
+        camera={{ position: [0, mobile ? 0.15 : 0.4, mobile ? 7.4 : 11], fov: mobile ? 42 : 38 }}
+        gl={{ antialias: true, alpha: true }}
+      >
         <color attach="background" args={['#04111f']} />
-        <fog attach="fog" args={['#04111f', 18, 72]} />
-        <ambientLight intensity={1.1} />
-        <directionalLight position={[6, 8, 5]} intensity={2.3} color="#ffffff" />
-        <pointLight position={[4, 1, 7]} intensity={42} color="#74f2ff" distance={40} />
-        <pointLight position={[7, -2, -10]} intensity={34} color="#ff8a6c" distance={38} />
-        <pointLight position={[-4, 3, -28]} intensity={24} color="#ffd36a" distance={34} />
-        <ParticleField />
-        <TunnelRings />
-        <HeroStage progress={progress} />
-        <CameraRig progress={progress} />
-        <ExperiencePath />
-        <SkillConstellation activeSkill={activeSkill} />
-        <ProjectMonolith />
-        <ContactBeacon />
+        <fog attach="fog" args={['#04111f', mobile ? 10 : 18, mobile ? 42 : 72]} />
+        <ambientLight intensity={mobile ? 1.2 : 1.1} />
+        <directionalLight position={[6, 8, 5]} intensity={mobile ? 1.8 : 2.3} color="#ffffff" />
+        <pointLight position={[4, 1, 7]} intensity={mobile ? 28 : 42} color="#74f2ff" distance={mobile ? 26 : 40} />
+        <pointLight position={[7, -2, -10]} intensity={mobile ? 20 : 34} color="#ff8a6c" distance={mobile ? 24 : 38} />
+        <pointLight position={[-4, 3, -28]} intensity={mobile ? 14 : 24} color="#ffd36a" distance={mobile ? 22 : 34} />
+        <ParticleField mobile={mobile} />
+        <TunnelRings mobile={mobile} />
+        <HeroStage progress={progress} mobile={mobile} />
+        <CameraRig progress={progress} mobile={mobile} />
+        <ExperiencePath mobile={mobile} />
+        <SkillConstellation activeSkill={activeSkill} mobile={mobile} />
+        <ProjectMonolith mobile={mobile} />
+        <ContactBeacon mobile={mobile} />
       </Canvas>
     </div>
   );
