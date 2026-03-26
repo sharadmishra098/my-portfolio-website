@@ -89,7 +89,19 @@ function App() {
   }, [progress]);
 
   if (isMobile) {
-    return <MobileExperience />;
+    return (
+      <div className="theme-text relative min-h-screen bg-ink">
+        <Suspense
+          fallback={<div className="fixed inset-0 bg-[radial-gradient(circle_at_top,_rgba(116,242,255,0.18),_transparent_28%),linear-gradient(180deg,_#04111f_0%,_#05192e_48%,_#020814_100%)]" />}
+        >
+          <SceneCanvas progress={progress} activeSkill={activeSkill} mobile />
+        </Suspense>
+        <MobileExperience
+          theme={theme}
+          onToggle={() => setTheme((value) => (value === 'dark' ? 'light' : 'dark'))}
+        />
+      </div>
+    );
   }
 
   return (
@@ -342,7 +354,7 @@ function App() {
                 description={portfolioData.education}
               />
               <div data-reveal className="grid gap-4 sm:grid-cols-3">
-                <a href={`mailto:${portfolioData.email}`} className="glass-panel flex items-center gap-4 p-5">
+                <a href={`mailto:${portfolioData.email}`} className="glass-panel flex items-center justify-center gap-4 p-4 text-center">
                   <Mail size={18} />
                   <span>{portfolioData.email}</span>
                 </a>

@@ -2,28 +2,54 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolio-data';
 import { SectionHeading } from './SectionHeading';
+import { ThemeToggle } from './ThemeToggle';
 
-export function MobileExperience() {
+interface MobileExperienceProps {
+  theme: 'light' | 'dark';
+  onToggle: () => void;
+}
+
+export function MobileExperience({ theme, onToggle }: MobileExperienceProps) {
   return (
-    <main className="theme-text relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(116,242,255,0.18),_transparent_28%),linear-gradient(180deg,_#04111f_0%,_#06203a_50%,_#020914_100%)] px-5 pb-16 pt-8">
+    <main className="theme-text relative min-h-screen overflow-hidden bg-transparent px-5 pb-16 pt-8">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(116,242,255,0.12),_transparent_28%),linear-gradient(180deg,rgba(4,17,31,0.08)_0%,rgba(6,32,58,0.14)_50%,rgba(2,9,20,0.24)_100%)]" />
       <div className="absolute inset-0 bg-grain bg-[size:18px_18px] opacity-10" />
+      <div className="pointer-events-none fixed inset-x-0 top-0 z-30 flex items-center justify-between px-5 py-5">
+        <div className="theme-outline-button pointer-events-auto rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.36em] theme-muted backdrop-blur">
+          3D Journey Portfolio
+        </div>
+        <div className="pointer-events-auto">
+          <ThemeToggle theme={theme} onToggle={onToggle} />
+        </div>
+      </div>
       <div className="relative mx-auto max-w-md space-y-16">
-        <section className="theme-surface rounded-[32px] border theme-border space-y-6 p-6 backdrop-blur">
-          <p className="text-xs uppercase tracking-[0.4em] text-cyan/80">Immersive Portfolio</p>
-          <h1 className="font-display text-5xl leading-none">{portfolioData.name}</h1>
-          <p className="theme-muted text-lg">{portfolioData.title}</p>
-          <p className="theme-muted text-sm leading-7">{portfolioData.summary}</p>
-          <div className="grid grid-cols-2 gap-3">
-            {portfolioData.metrics.map((metric) => (
-              <div key={metric.label} className="theme-surface-strong rounded-2xl border theme-border p-4">
-                <div className="font-display text-2xl text-cyan">{metric.value}</div>
-                <div className="theme-soft mt-2 text-xs uppercase tracking-[0.24em]">{metric.label}</div>
-              </div>
-            ))}
+        <section className="relative flex min-h-[100svh] items-end py-24">
+          <div className="w-full space-y-6">
+            <p className="text-xs uppercase tracking-[0.4em] text-cyan/80">Immersive Portfolio</p>
+            <h1 className="font-display text-6xl leading-[0.88]">{portfolioData.name}</h1>
+            <p className="theme-muted max-w-xs text-lg">{portfolioData.title}</p>
+            <p className="theme-muted max-w-sm text-sm leading-7">{portfolioData.summary}</p>
+            <div className="flex flex-wrap gap-3">
+              <a href={`mailto:${portfolioData.email}`} className="button-primary">
+                Start a conversation
+              </a>
+              <a href="#mobile-journey" className="button-secondary">
+                Explore
+              </a>
+            </div>
+            <div className="grid grid-cols-2 gap-3 pt-3">
+              {portfolioData.metrics.map((metric) => (
+                <div key={metric.label} className="theme-surface rounded-2xl border theme-border p-4 backdrop-blur">
+                  <div className="font-display text-2xl text-cyan">{metric.value}</div>
+                  <div className="theme-soft mt-2 text-xs uppercase tracking-[0.24em]">{metric.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="space-y-6">
+        <section id="mobile-journey" className="space-y-6">
+          <p className="text-xs uppercase tracking-[0.4em] text-cyan/80">Immersive Portfolio</p>
           <SectionHeading eyebrow="Journey" title="Built for scale, now shaped for AI." description={portfolioData.summary} />
           {portfolioData.experience.map((item, index) => (
             <motion.article
